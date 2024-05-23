@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: nginx-deployment-argo
   labels:
     app: nginx
 spec:
-  replicas: 3  # Number of desired pods
+  replicas: 1  # Number of desired pods
   selector:
     matchLabels:
       app: nginx
@@ -15,7 +15,7 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx-argo
+      - name: nginx
         image: nginx:latest  # Use the latest official Nginx image
         ports:
         - containerPort: 80  # Expose port 80
